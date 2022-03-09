@@ -111,7 +111,7 @@ public class EmployeeManagementSystem
  		String un=sc.next();
  		System.out.println("Enter Password");
  		String pass=sc.next();
- 		if(un.equals("myname") && pass.equals("employee"))
+ 		if(un.equals("pratiksha") && pass.equals("12345"))
  		{
  			
  			System.out.println("Login Successed \n\n");
