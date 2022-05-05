@@ -1,0 +1,66 @@
+@charset "ISO-8859-1";
+
+body
+{
+	background-color:activeborder;
+	background-image: url("../images/homepage/img111.jpg" );
+	background-size: 100%;	
+}
+
+.center {
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  font-size:xx-large;
+  text-shadow: 2px 3px navy;
+  }
+.mycard
+{
+	border-radius:50px;
+	background-color: #f2f2f2;
+	padding:20px;
+}
+.login
+{
+	margin-left: 30%;
+	margin-top: 10%;
+	border:medium;
+	margin-right: 30%;
+	border-radius:50px;
+	padding: 20px;
+	border-radius: 5px;
+	background-color: #f2f2f2;
+}
+p.paragraph
+{
+	width: 100%;
+	border:7px ridge;
+	padding:50px;
+	margin:10px;
+   font-size: large;
+   font-style: italic;
+	
+}
+.card 
+{
+      border: 10px solid #ccc;
+      background-color:MediumSeaGreen;
+      padding: 30px;
+      margin-bottom: 200px;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
