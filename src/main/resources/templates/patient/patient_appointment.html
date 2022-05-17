@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="patient/patient_dashboard::Layout(~{::section})" >
+<head>
+<meta charset="utf-8" />
+<title>Patient Appointment</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style1.css}">
+
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="col-md-6 offset-3">
+			<div class="mycard  mt-5 mb-5">
+				<h1 style="text-align: center;">Patient Appoinment</h1>
+
+				<form action="#" th:action="@{/saveapp}" th:object="${appointment}" method="post">
+
+
+					
+                 <div alight="left">
+						<tr>
+							<label class="form-label"> Patient Name</label>
+							<td><input type="text" readonly  th:value= "${session.patientName}"
+								class="form-control" placeholder="Patient Name" /></td>
+						</tr>
+					</div>	
+				
+				
+				<div alight="left">
+								<tr>
+							<label class="form-label">Doctor Name</label>
+							
+								<select class="form-control" id="exampleFormControlSelect1"
+								name="doctor_Name">
+								<option th:each="option : ${session.doctorList}" th:value="${option.doctorName}" th:text="${option.doctorName}">
+							
+								
+								</select>
+								</tr>
+								</div>
+
+				
+					
+
+
+					<div alight="left">
+								<tr>
+							<label class="form-label">Doctor Specialization</label>
+								<select class="form-control" id="exampleFormControlSelect1"
+								name="doctor_Specialization">
+								<option>Cardiology</option>
+								<option>Anesthesiology</option>
+								<option>Psychtrist</option>
+								<option>Genral Surgen</option>
+								<option>Neurologist</option>
+								</select>
+								</tr>
+								</div>
+								
+					<div alight="left">
+						<tr>
+							<label class="form-label"> Date</label>
+							<td><input type="Date" th:field="${appointment.date}"
+							 name="date"
+								class="form-control" placeholder="Date" /></td>
+						</tr>
+					</div>	
+					
+					
+					
+					<div alight="left">
+						<tr>
+							<!-- label class="form-label"> Time</label>
+							<td><input type="text" th:field="${appointment.time_Slot}"
+								class="form-control" placeholder="Time slot" /></td>
+						 -->
+						 <label for="appt"><br>
+						 Choose a time for your meeting:</label>
+
+						<input type="time" id="appt" name="time_Slot"
+      					 min="09:00" max="18:00" required>
+
+<small>Office hours are 9am to 6pm</small>
+					
+						 
+						 
+						 </tr>
+					</div>	
+					
+					
+					
+					
+					
+					
+					
+					
+					<div alight="left">
+						<tr>
+							<label class="form-label"> Fees</label>
+							<td><input type="text" value = "500" readonly
+								class="form-control" placeholder="fees" /></td>
+						
+					</div>					
+									
+
+
+
+
+								
+									<br>
+									<tr>
+									<td colspan="2"><button type="submit"class="btn btn-info">Save</button></td>
+									</tr>
+							</table>
+				</form>
+			</div>
+			</section>
+</body>
+</html>
+
+
+
+

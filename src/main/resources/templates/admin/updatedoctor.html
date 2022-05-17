@@ -1,0 +1,134 @@
+
+     
+     
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/admin_dashboard::Layout(~{::section})" >
+<head>
+<meta charset="utf-8" />
+<title>update Doctor</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style1.css}">
+
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="col-md-6 offset-3">
+			<div class="mycard  mt-5 mb-5">
+				<h1 style="text-align: center;">Update Doctor</h1>
+
+				<form action="#" th:action="@{/saveUpdateDoctor}" th:object="${doctor}"
+					method="post">
+
+
+					<div alight="left">
+						<tr>
+							<label class="form-label">Doctor Name</label>
+							<td><input type="hidden" th:field="*{doctorId}" /> <input
+								type="text" th:field="*{doctorName}" class="form-control"
+								placeholder="Doctor Name" /></td>
+						</tr>
+					</div>
+
+					<div alight="left">
+
+						<tr>
+							<label class="form-label">Doctor Address</label>
+							<td><input type="text" th:field="*{doctorAddress}"
+								class="form-control" placeholder="Doctor Address" /></td>
+						</tr>
+					</div>
+
+					<div alight="left">
+						<tr>
+							<label class="form-label">Doctor Email</label>
+							<td><input type="email" th:field="*{doctorEmail}"
+								class="form-control" placeholder="Doctor Email" /></td>
+						</tr>
+					</div>
+
+					<div alight="left">
+						<tr>
+							<label class="form-label"> Doctor Contact</label>
+							<td><input type="text" th:field="*{doctorContact}"
+								class="form-control" placeholder="Doctor Contact" /></td>
+						</tr>
+					</div>
+
+
+					<div alight="left">
+						<tr>
+							<label class="form-label">Doctor Qualification</label>
+							<select class="form-control" id="exampleFormControlSelect1"
+								name="doctorEducation">
+								<option>MBBS</option>
+								<option>BDS</option>
+								<option>BHMS</option>
+								<option>BAMS</option>
+								<option>HDSB</option>
+								<option>DGNF</option>
+							</select>
+
+							<div alight="left">
+								<tr>
+									<label class="form-label">Doctor Experience</label>
+									<select class="form-control" id="exampleFormControlSelect1"
+										name="doctorExperience">
+										<option>0</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+
+
+
+									
+
+
+
+									<div alight="left">
+										<tr>
+											<label class="form-label">Doctor Specialization</label>
+											<select class="form-control" id="exampleFormControlSelect1"
+												name="doctorSpecialization">
+												<option>Cardiology</option>
+												<option>Anesthesiology</option>
+												<option>Psychtrist</option>
+												<option>Genral Surgen</option>
+												<option>Dermatologist</option>
+												<option>Neurologist</option>
+											</select>
+										
+
+
+
+											<div alight="left">
+												<tr>
+													<label class="form-label">Doctor Image</label>
+													<td><input type="file" th:field="*{doctorImage}"
+														class="form-control" placeholder="Doctor Image" /></td>
+												</tr>
+											</div>
+											<br>
+										<tr>
+											<td colspan="2"><button type="submit"
+													class="btn btn-info">Save</button></td>
+										</tr>
+										</table>
+				</form>
+			</div>
+			</section>
+</body>
+</html>
+
+
+
+
+     

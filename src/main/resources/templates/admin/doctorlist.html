@@ -1,0 +1,79 @@
+
+
+
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/admin_dashboard::Layout(~{::section})" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+
+
+	<h1 align="center">Doctor List</h1>
+		<div class="container">
+		
+			<table class="table" style="width: 100%; margin-left: 11%;">
+			
+				<thead class="thead-dark">
+				
+					<tr>
+						<th scope="col">Doctor Id</th>
+						<th scope="col">Doctor Name</th>
+						<th scope="col">Doctor Address</th>
+						<th scope="col">Doctor Email</th>
+						<th scope="col">Doctor Contact</th>
+						<th scope="col">Doctor Education</th>
+						<th scope="col">Doctor Experience</th>
+						<th scope="col">Doctor Specialization</th>
+						<th scope="col">Doctor Image</th>
+						<th scope="col">Action</th>
+					</tr>
+				</thead>		
+			<tbody>
+				<tr th:each="doctor:${doctorObj}">
+					<td th:text="${doctor.doctorId}"></td>
+					<td th:text="${doctor.doctorName}"></td>
+			        <td th:text="${doctor.doctorAddress}"></td>
+			        <td th:text="${doctor.doctorEmail}"></td>
+			        <td th:text="${doctor.doctorContact}"></td>
+			        <td th:text="${doctor.doctorEducation}"></td>
+			        <td th:text="${doctor.doctorExperience}"></td>
+			        <td th:text="${doctor.doctorSpecialization}"></td>
+			        <td th:text="${doctor.doctorImage}"></td>
+			       
+<div>		        
+<td><button class = "btn btn-primary"style="color: black"><a th:href = "@{/updateDoctor{doctorId}(doctorId=${doctor.doctorId})}">Update</a></button></div>	
+<button class = "btn btn-danger"><a th:href = "@{/doctorlist/{doctorId}(doctorId=${doctor.doctorId})}">Delete</a></button>
+
+<!-- <td><button class="btn btn-success btn-sm rounded-0" type="button" data-toggle="tooltip" 
+ title="Edit"><a th:href = "@{/updateDoctor{doctorId}(doctorId=${doctor.doctorId})}"><i class="fa fa-edit"></i></a></button>
+ 
+ <button class="btn btn-danger btn-sm rounded-0" type="button" data-toggle="tooltip" 
+  title="Delete"><a th:href = "@{/doctorlist{doctorId}(doctorId=${doctor.doctorId})}"><i class="fa fa-trash"></i></a></button></td>
+			     -->   
+			   </tr>  
+	      </tbody>
+	</table>
+	
+	
+	<nav aria-label="Page navigation example">
+		<ul class="pagination" style="margin-left: 40%">
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			
+	   </ul>
+	
+</nav>
+		
+		
+		
+</div>
+</section>
+</body>
+</html>

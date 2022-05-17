@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="doctor/doctor_dashboard::Layout(~{::section})" >
+<head>
+    <meta charset="utf-8" />
+    <title>add new patient</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+    <script src= "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+    
+    <link  rel="stylesheet" type="text/css" th:href="@{/css/style1.css}">
+    
+</head>
+<body>
+<section>
+<div class="container">
+        <div class="col-md-6 offset-3"> 
+             <div class="mycard  mt-5 mb-5">
+                  <h1 style="text-align: center;">Add Patient</h1>
+                  
+    <form action="#" th:action="@{/save}"th:object="${patient}" method="post">
+
+      
+ 		<div alight="left">
+            <tr>
+                <label class="form-label" >Patient Name</label>
+                <td>
+	                <input type="hidden" th:field="*{patientId}" />
+	                <input type="text" th:field="*{patientName}" class="form-control" placeholder="Patient Name" />
+                </td>
+            </tr>
+         </div>   
+            
+          	<div alight="left">
+          
+            <tr>
+                 <label class="form-label" >Address</label>
+                <td><input type="text" th:field="*{patientAddress}" class="form-control" placeholder="Address" /></td>
+            </tr>
+            </div> 
+            <div alight="left">
+                 <tr>
+                 <label class="form-label" >Contact</label>
+                <td><input type="text" th:field="*{patientContact}" class="form-control" placeholder="Contact" /></td>
+            </tr>
+            </div> 
+            
+            <div alight="left">
+                 <tr>
+                 <label class="form-label" >Email</label>
+                <td><input type="email" th:field="*{patientEmail}" class="form-control" placeholder="Email" /></td>
+            </tr>
+            </div> 
+            
+             <div alight="left">
+                 <tr>
+                 <label class="form-label" >Image</label>
+                <td><input type="file" th:field="*{patientImage}" class="form-control" placeholder="Image" /></td>
+            </tr>
+            </div> 
+			<br>
+            <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info">Save</button> </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</section>
+</body>
+</html>   
+
+
+
+  

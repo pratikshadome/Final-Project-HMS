@@ -1,5 +1,8 @@
-<!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="Layout(content)">
+
+
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})" >
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -7,67 +10,57 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+    <title>Hospital Management System</title>
     
-      <link rel="stylesheet" href=" https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-
-
-
-
-
-
-
-    <title>Hello, world!</title>
    
-   <link  rel="stylesheet" type="text/css" th:href="@{/css/style1.css}">
-   
-   
-    
-  </head>
-  <body>
-<<<<<<< HEAD
-  <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
-<!--    <nav class="navbar navbar-dark bg-primary"> -->
-<!--        <nav class="navbar navbar-expand-lg navbar-light bg-light">  -->
-<!-- <nav class="navbar navbar-expand-lg bg-info navbar-light">  -->
-=======
-  <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-
->>>>>>> 8e53fd8 (Project Commit)
-  <a class="navbar-brand" href="#">Welcome in KEM Hospital</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto text-uppercase">
-      <li class="nav-item active">
-        <a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
-      </li>
   
-      <li class="nav-item">
-        <a class="nav-link" href="logout">Logout</a>
-     </li>
-     <li class="nav-item">
-        <a class="nav-link" href="about">About</a>
-      </li>
-     
-     
-     
-    </ul>
+  </head>
+  
+  <body>
+  <section>
+  <div id="para2">
+  <div class="container"style="border-radius: 30%">
+  <div class = "login"style="border-radius: 20%">
+ 
+  
+    <form th:action="@{/checkLogin2}" method="post">
+     <h1 style="text-align: center;">Admin Login</h1>
     
+   <div class="form-group">
+    <label for="exampleInputEmail1">Name</label>
+    <input type="email" 
+    name="adminEmail"
+    class="form-control"
+    placeholder="Enter your email id" 
+    id="exampleInputEmail1">
   </div>
-</nav>
-<<<<<<< HEAD
-
-
-=======
-<div class="content">
-	<div th:replace="${content}">
-	</div>
-</div>
-				
->>>>>>> 8e53fd8 (Project Commit)
+  
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" 
+    name="adminContact"
+    class="form-control" 
+    placeholder="Enter your registered contact number"
+    id="exampleInputPassword1">
+  </div> 
+  
+  
+  
+  
+  
+    <div class="form-group mt-3" align="center">
+      <input type="submit" class="btn btn-success" value="Submit"/>
+       <input type="reset" class="btn btn-warning" value="Reset"/>
+    </div>
+    
+   <!--  <div class="a" align="center">
+    <a th:href="@{/admin_signup}">Create Account Here</a>
+    </div> -->
    
+    </form>
+</div>
+</div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -80,5 +73,7 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
     -->
+    </div>
+    </section>
   </body>
 </html>
