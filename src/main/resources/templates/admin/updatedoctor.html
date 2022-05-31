@@ -1,4 +1,118 @@
 
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/admin_dashboard::Layout(~{::section})" >
+<head>
+<meta charset="utf-8" />
+<title>update doctor</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style1.css}">
+</head>
+<body>
+<section>
+	<div class="container">
+		<div class="col-md-6 offset-3">
+			<div class="mycard  mt-5 mb-5">
+				<h1 style="text-align: center;">Update Doctor</h1>
+
+				<form action="#"
+					th:action="@{/saveUpdateDoctor{doctorId}(doctorId=${doctor.doctorId})}"
+					th:object="${doctor}" enctype="multipart/form-data" method="post">
+
+					<div th:if="${session.message11}"
+						th:classappend="${session.message11.messageType}" class="alert"
+						role="alert">
+						<p th:text="${session.message11.content}"></p>
+						<th:block th:text="${#session.removeAttribute('message11')}" />
+					</div>
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Name</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							name="doctorName" th:value="${doctor.doctorName}"
+							placeholder="Doctor Name">
+					</div>
+
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Docotr Address</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							name="doctorAddress" th:value="${doctor.doctorAddress}"
+							placeholder="Doctor Address">
+					</div>
+
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Contact</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							name="doctorContact" th:value="${doctor.doctorContact}"
+							placeholder="Doctor Contact">
+					</div>
+
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Email</label> <input
+							type="email" class="form-control" id="exampleInputEmail1"
+							name="doctorEmail" th:value="${doctor.doctorEmail}"
+							placeholder="Doctor Email">
+					</div>
+					
+						<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Education</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							name="doctorEducation" th:value="${doctor.doctorEducation}"
+							placeholder="Doctor Education">
+					</div>
+					
+						<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Experience</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							name="doctorExperience" th:value="${doctor.doctorExperience}"
+							placeholder="Doctor Experience">
+					</div>
+					
+						<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Specialization</label> <input
+							type="text" class="form-control" id="exampleInputEmail1"
+							name="doctorSpecialization" th:value="${doctor.doctorSpecialization}"
+							placeholder="Doctor doctorSpecialization">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">Doctor Image</label> <input
+							type="file" class="form-control" id="exampleInputEmail1"
+							name="doctorProfilePhoto" 
+							placeholder="Doctor Image">
+					</div>
+
+
+
+					
+					
+					<table>
+					<tr>
+						<td colspan="2"><button type="submit" class="btn btn-info">Save</button>
+						</td>
+					</tr>
+					</table>
+				</form>
+			</div>
+			</div>
+			</div>
+			</section>
+</body>
+</html>
+
+
+
+
+<!-- 
      
      
 
@@ -22,11 +136,12 @@
 			<div class="mycard  mt-5 mb-5">
 				<h1 style="text-align: center;">Update Doctor</h1>
 
-				<form action="#" th:action="@{/saveUpdateDoctor}" th:object="${doctor}"
+				<form action="#" th:action="@{/saveUpdateDoctor{doctorId}(doctorId=${session.doctorId})}" th:object="${doctor}"
 					method="post">
 
-
+                     
 					<div alight="left">
+					
 						<tr>
 							<label class="form-label">Doctor Name</label>
 							<td><input type="hidden" th:field="*{doctorId}" /> <input
@@ -73,6 +188,8 @@
 								<option>HDSB</option>
 								<option>DGNF</option>
 							</select>
+						
+							
 
 							<div alight="left">
 								<tr>
@@ -86,8 +203,8 @@
 										<option>4</option>
 										<option>5</option>
 									</select>
-
-
+                                  
+                               
 
 									
 
@@ -106,6 +223,7 @@
 												<option>Neurologist</option>
 											</select>
 										
+								
 
 
 
@@ -122,8 +240,11 @@
 													class="btn btn-info">Save</button></td>
 										</tr>
 										</table>
+									
 				</form>
 			</div>
+			
+			
 			</section>
 </body>
 </html>
@@ -131,4 +252,4 @@
 
 
 
-     
+      -->

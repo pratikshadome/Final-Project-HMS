@@ -26,7 +26,7 @@ public class PatientAppointment
 {
 	@Id
 	 @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long appointment_id;
+	private int appointment_id;
 	@Column
 	//@NotBlank(message = "please enter doctor name")
     private String patient_Name;
@@ -39,7 +39,7 @@ public class PatientAppointment
 
 	@Column
 	//@NotBlank(message = "please enter Date")
-    private Date date;
+    private String date;
 	
 	@Column
 	//@NotBlank(message = "please enter time Slot")

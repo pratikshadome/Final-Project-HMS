@@ -1,27 +1,12 @@
 package com.HMS.serviceImplementation;
 
-<<<<<<< HEAD
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import com.HMS.entity.Doctor;
-import com.HMS.repository.DoctorRepo;
-import com.HMS.service.DoctorService;
-@Service
-public class DoctorServiceImplementation implements DoctorService
-{
-	@Autowired
-	DoctorRepo doctorRepo;
-
-	@Override
-	public void addDoctor(Doctor doctor)
-	{
-=======
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.HMS.entity.Doctor;
@@ -34,38 +19,15 @@ public class DoctorServiceImplementation implements DoctorService {
 
 	@Autowired
 	private DoctorRepo doctorRepo;
+	
+	
 
 	@Override
 	public void addDoctor(Doctor doctor) {
->>>>>>> 8e53fd8 (Project Commit)
 		this.doctorRepo.save(doctor);
 	}
 
 	@Override
-<<<<<<< HEAD
-	public Doctor doctorLogin(String email, String contact) {
-		// TODO Auto-generated method stub
-		 return doctorRepo.findByDoctorEmailAndDoctorContact(email, contact);
-	}
-	
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-=======
 	public List<Doctor> getAllDoctor() {
 		// TODO Auto-generated method stub
 		return doctorRepo.findAll();
@@ -101,6 +63,7 @@ public class DoctorServiceImplementation implements DoctorService {
 		doctorObj.setDoctorContact(doctor.getDoctorContact());
 		doctorObj.setDoctorEmail(doctor.getDoctorEmail());
 		doctorObj.setDoctorImage(doctor.getDoctorImage());
+		//this.doctorService.saveDoctor1(doctorObj);
 
 		this.doctorRepo.save(doctorObj);
 	}
@@ -115,5 +78,22 @@ public class DoctorServiceImplementation implements DoctorService {
 		this.doctorRepo.save(doctor);
 	}
 
+	@Override
+	public Doctor checkEmail(String doctorEmail) {
+		// TODO Auto-generated method stub
+		return doctorRepo.findByDoctorEmail(doctorEmail);
+	}
+
+	@Override
+	public void updatePassword(Doctor doctor, int doctorId) {
+		
+		
+	}
+	@Override
+	public Page<Doctor> getAllDoctor(Pageable pageable) {
+		
+		return doctorRepo.findAll(pageable);
+	}
+
+	
 }
->>>>>>> 8e53fd8 (Project Commit)

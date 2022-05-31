@@ -1,5 +1,7 @@
 package com.HMS.serviceImplementation;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +19,10 @@ public class PatientAppointmentServiceImplementation implements PatientAppointme
 	public void saveapp(PatientAppointment appointment)
 	{
 		this.patientappointmentRepo.save(appointment);
+	}
+	@Override
+	public List<PatientAppointment> getAllPatientAppointment() {
+		// TODO Auto-generated method stub
+		return patientappointmentRepo.findAll();
 	}
 }

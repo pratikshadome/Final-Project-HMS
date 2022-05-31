@@ -1,0 +1,71 @@
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})" >
+ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/admin_dashboard::Layout(~{::section})" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section>
+	<h1 align="center">Appointment List</h1>
+		<div class="container">
+		
+		
+			<table class="table" style = "margin-left: 15%">
+				<thead class="thead-dark" >
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">Appointment Date</th>
+						<th scope="col">Doctor Name</th>
+						<th scope="col">Doctor Specialization</th>
+						<th scope="col">Fees</th>
+						<th scope="col">Patient Name</th>
+						<th scope="col">Appointment Time</th>
+						<!-- <th scope="col">Action</th> -->
+					</tr>
+				</thead>		
+			<tbody>
+				<tr th:each="patientappointment:${patientappointmentObj}">
+					<td th:text="${patientappointment.appointment_id}"></td>
+					<td th:text="${patientappointment.date}"></td>
+			        <td th:text="${patientappointment.doctor_Name}"></td>
+			        <td th:text="${patientappointment.doctor_Specialization}"></td>
+			        <td th:text="${patientappointment.fees}"></td>
+			        <td th:text="${patientappointment.patient_Name}"></td>
+			        <td th:text="${patientappointment.time_Slot }"></td>
+			        
+
+			    
+<!-- <td><button class = "btn btn-primary"><a th:href = "@{/updatePatient{patientId}(patientId=${patient.patientId})}">Update</a></button>
+
+<button class = "btn btn-danger"><a th:href = "@{/patientlist/{patientId}(patientId=${patient.patientId})}">Delete</a></button> -->
+
+			    
+			    
+			    
+			    
+			        
+			       
+			   </tr>  
+	      </tbody>
+	</table>
+	
+	
+	<nav aria-label="Page navigation example">
+		<ul class="pagination" style="margin-left: 40%">
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			
+	   </ul>
+	
+</nav>
+		
+		
+		</div>
+</section>
+</body>
+</html>

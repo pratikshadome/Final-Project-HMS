@@ -1,23 +1,19 @@
 package com.HMS.serviceImplementation;
 
-<<<<<<< HEAD
-=======
 import java.util.List;
+
 import java.util.*;
 
->>>>>>> 8e53fd8 (Project Commit)
 import org.springframework.beans.factory.annotation.Autowired;
-
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.HMS.entity.Patient;
 import com.HMS.repository.PatientRepo;
 import com.HMS.service.PatientService;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 8e53fd8 (Project Commit)
 @Service
 public class PatientServiceImplementation implements PatientService
 {
@@ -26,11 +22,7 @@ public class PatientServiceImplementation implements PatientService
 
 
 @Autowired
-<<<<<<< HEAD
-PatientRepo patientRepo;
-=======
 private PatientRepo patientRepo;
->>>>>>> 8e53fd8 (Project Commit)
 
 @Override
 public void addPatient(Patient patient)
@@ -43,9 +35,6 @@ public Patient checkLogin1(String email, String contact) {
 	// TODO Auto-generated method stub
 	 return patientRepo.findByPatientEmailAndPatientContact(email, contact);
 }
-<<<<<<< HEAD
-}
-=======
 
 @Override
 public List<Patient> getAllPatient() {
@@ -104,6 +93,24 @@ public List<Patient> getAllPatient() {
 		this.patientRepo.save(patientObj);
 	}
 
+	@Override
+	public Patient checkEmail(String patientEmail) {
+		// TODO Auto-generated method stub
+		return patientRepo.findByPatientEmail(patientEmail);
+	}
+
+	@Override
+	public void updatePassword(Patient patient, int patientId) {
+		
+		
+	}
+
+	@Override
+	public Page<Patient> getAllPatient(Pageable pageable) {
+		
+		return patientRepo.findAll(pageable);
+	}
+
 	
 	}
 
@@ -120,4 +127,3 @@ public List<Patient> getAllPatient() {
 	
 
 	
->>>>>>> 8e53fd8 (Project Commit)

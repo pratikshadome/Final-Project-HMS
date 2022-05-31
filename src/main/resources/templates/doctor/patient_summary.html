@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="doctor/doctor_dashboard::Layout(~{::section})">
+
+<head>
+<meta charset="utf-8" />
+<title>Patient Summary</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+<script
+	src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet" type="text/css" th:href="@{/css/style1.css}">
+
+</head>
+<body>
+	<section>
+		<div class="container">
+			<div class="col-md-6 offset-3">
+				<div class="mycard  mt-5 mb-5">
+					<h1 style="text-align: center;">Patient Summary</h1>
+
+					<form action="#" th:action="@{/savesum2{doctorId}(doctorId=${session.doctorId})}" th:object="${summary}"
+						method="post">
+
+
+
+						<div alight="left">
+							<tr>
+								<label class="form-label"> Doctor Name</label>
+								<td><input type="text" readonly
+									th:value="${session.doctorName}" class="form-control"
+									placeholder="Doctor Name" /></td>
+							</tr>
+						</div>
+						
+
+						<div alight="left">
+							<tr>
+								<label class="form-label">Patient Name</label>
+
+								<select class="form-control" id="exampleFormControlSelect1"
+									name="patient_Name">
+									<option th:each="option : ${session.patientList}"
+										th:value="${option.patientId}" th:text="${option.patientName}">
+										<!-- th:value="${option.doctorName}" th:text="${option.doctorName}"> -->
+								</select>
+							</tr>
+						</div>
+
+						
+
+							<div alight="left">
+							<tr>
+								<label class="form-label"> Disease Detected</label>
+								<td><input type="text" th:field="${summary.disease_detected}" name="disease_detected"
+									class="form-control" placeholder="Disease Detected" /></td>
+							</tr>
+						</div>
+						
+						<div alight="left">
+							<tr>
+								<label class="form-label"> Description</label>
+								<td><input type="text" th:field="${summary.description}" name="description"
+									class="form-control" placeholder="Description" /></td>
+							</tr>
+						</div>
+
+
+						
+						<div alight="left">
+							<tr>
+								<label class="form-label"> Visit Again On Date</label>
+								<td><input type="text" th:field="${summary.visit_again_on}" name="visit_again_on"
+									class="form-control" placeholder="Visit Again On Date" /></td>
+							</tr>
+						</div>
+
+
+						<br>
+						<tr>
+							<td colspan="2"><button type="submit" class="btn btn-info">Save</button></td>
+						</tr>
+						</table>
+					</form>
+				</div>
+	</section>
+</body>
+</html>
+
+
+
+

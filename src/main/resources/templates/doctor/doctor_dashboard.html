@@ -23,7 +23,9 @@
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+<section class="banner">
+  <marquee style="font-family:fantasy; font-size:45px"> Welcome To Doctor Dashboard...</marquee>
+  </section>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-uppercase">
       <li class="nav-item active">
@@ -43,14 +45,17 @@
     
   </div>
 </nav>
+
+
 <div class="sidebar">
 
+  
   <a href="#" class="item"><b><h4> Doctor Dashboard</h4></b></a>
-   <a th:href="@{/patientlist1}" class="item"><i class="fa-regular fa-rectangle-list"></i>	Patient List</a>
-   <a th:href = "@{'/addpatient'}" ><i class="fa-solid fa-user-plus"></i> Add Patient</a>
-   <a href="#" class="item"><i class="fa-regular fa-rectangle-list"></i> Appointment List</a>
-   <a href="#" class="item"><i class="fa-solid fa-cart-plus"></i> Add Patient Summery</a>
-    <a href="#" class="item"><i class="fa-solid fa-list-ol"></i> Patient Summery List</a>
+   <a href="patientlist1" class="item"><i class="fa-regular fa-rectangle-list"></i>	Patient List</a>
+  <!--  <a th:href = "@{'/addpatient'}" ><i class="fa-solid fa-user-plus"></i> Add Patient</a> -->
+   <a href="appointment_list" class="item"><i class="fa-regular fa-rectangle-list"></i> Appointment List</a>
+   <a href="patient_summary" class="item"><i class="fa-solid fa-cart-plus"></i> Add Patient Summary</a>
+    <a href="summarylist" class="item"><i class="fa-solid fa-list-ol"></i> Patient Summery List</a>
   <div class="divider"></div>
   </div>
   

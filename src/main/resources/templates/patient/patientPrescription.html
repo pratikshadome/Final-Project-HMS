@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::Layout(~{::section})">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+<section>
+
+
+<h1 style="text-align: center;">All Presciptions</h1>
+      <table class="table"style="margin-top: 2%;">
+  <thead>
+    <tr>
+      <th scope="col">Summary Id</th>
+      <th scope="col">Patient Name</th>
+      <th scope="col">Doctor Name</th>
+      <th scope="col">Disease detected</th>
+      <th scope="col">Description</th>
+      <th scope="col">Visit Again On date</th>
+      
+      
+    </tr>
+  </thead>
+  <tbody>
+  
+  
+  
+    <tr th:each="patient:${patientSummary}" >
+       <td th:text="${patient.summary_id}"></td>
+             <td th:text="${patient.patient_Name}"></td>
+                   <td th:text="${patient.doctor_Name}"></td>
+                         <td th:text="${patient.disease_detected}"></td>
+                               <td th:text="${patient.description}"></td>
+                                <td th:text="${patient.visit_again_on}"></td>
+   
+    </tr>
+  
+  </tbody>
+</table>
+
+
+
+
+
+
+
+<!-- <div class="container mt-5">
+<div class="my-card mr-3 ml-3">
+<div class="card-body">
+
+<div class="container text-center">
+
+ <form action="" th:object="${patientSummary}">
+<table class="table">
+<h4>Mark Sheet of Student:</h4>
+
+  <thead>
+  <h1 style="text-align: center;">Patient Prescription</h1>
+  <tr>
+      <th scope="col">Patient Id</th>
+    
+    <th scope="col"><span th:text="${session.patient.patientId}"></span></th>
+     
+    </tr>
+    <tr>
+      <th scope="col">Patient Name</th>
+      <th scope="col"><span th:text="${session.patient.patientName}"></span></th>
+     
+     
+    </tr>
+    <tr>
+      <th scope="col">Doctor Name</th>
+     <th scope="col"><span th:text="${patientSummary.doctor_Name}"></span></th>
+     
+     
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+      <th scope="row">Disease Detected</th>
+      <td><span th:text="${patientSummary.disease_detected}"></span></td>
+   
+    </tr>
+  
+   <tr>
+      <th scope="row">Description</th>
+      <td><span th:text="${patientSummary.description}"></span></td>
+   
+    </tr>
+    
+     <tr>
+      <th scope="row">Visit On Date</th>
+      <td><span th:text="${patientSummary.visit_again_on}"></span></td>
+   
+    </tr>
+     
+  
+    
+
+   
+  </tbody>
+ 
+</table>
+
+ <a th:href="@{/download_prescription pdf}"> <i class="fas fa-file-pdf fa-2x btn btn-primary mt-3 ml-4"> </i></a>
+
+ </form>
+</div>
+
+</div>
+
+</div>
+</div> -->
+
+
+</section>
+
+</body>
+</html>

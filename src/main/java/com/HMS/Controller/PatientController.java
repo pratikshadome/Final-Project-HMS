@@ -1,17 +1,17 @@
 
 package com.HMS.Controller;
 
+
 import java.io.File;
+
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-<<<<<<< HEAD
-=======
 import java.util.List;
->>>>>>> 8e53fd8 (Project Commit)
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -19,19 +19,15 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-<<<<<<< HEAD
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-
-=======
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,21 +36,29 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 
->>>>>>> 8e53fd8 (Project Commit)
 import com.HMS.entity.Patient;
+import com.HMS.repository.PatientRepo;
+import com.HMS.service.EmailService;
 import com.HMS.service.PatientService;
 
 @Controller
 public class PatientController 
 { 
+	Random random=new Random(1000);
 	@Autowired
 	PatientService patientService;
 	
-	 @RequestMapping("/home")
-	  public String home1(Model model)
+	@Autowired
+	EmailService emailService;
+	
+	@Autowired
+	PatientRepo patientRepo;
+	
+	  @RequestMapping("/home")
+	  public String home11(Model model)
 	  {
 		  model.addAttribute("title","Hospital Management System");
-		  return "home";
+		  return "dashboard";
 	  }
 	
 	  @RequestMapping("/logout")
@@ -71,14 +75,25 @@ public class PatientController
 		  return "about";
 	  }
 	
-	  @GetMapping("/home") 
-	  public String home() 
-	  {
-	  return "home"; 
-	  }
-<<<<<<< HEAD
-=======
+	
 	  
+	  @GetMapping("/dashboard")
+		public String dashboard(Model model) {
+			model.addAttribute("title","dashboard-hospital mgmt system");
+			
+			return "dashboard";
+			
+			
+		}
+		
+		@GetMapping("/home")
+		public String home(Model model) {
+			model.addAttribute("title","home-hospital mgmt system");
+			
+			return "home";
+			
+			
+		}
 	  
 	  @GetMapping("/patientbase")
 		public String patient()
@@ -87,46 +102,59 @@ public class PatientController
 		}
 	  
 	  
-	  @GetMapping("/patientlist")
-		 public String patientlist(Model model)
-		 {
-			List<Patient> list1 = this.patientService.getAllPatient();
-			model.addAttribute("patientObj", list1);
-			 return "patient/patientlist";
-		 }
-	  
+	  @GetMapping("/patient_list/{pageNumber}")
+	  public String patient_list(Model model,@PathVariable("pageNumber") int pageNumber, HttpSession session)
+	  {
+		  Pageable pageable=PageRequest.of(pageNumber,5);
+		  Page<Patient>list = this.patientService.getAllPatient(pageable);
+		  model.addAttribute("patientObj", list);
+		  model.addAttribute("currentPage", pageNumber);
+		  model.addAttribute("totalPages", list.getTotalPages());
+		  		return "admin/patient_list";
+		  
+	  }
 	  @GetMapping("/patient_list")
-		 public String patientlist1(Model model)
+		 public String patientlist(Model model,HttpSession session)
 		 {
-			List<Patient> list1 = this.patientService.getAllPatient();
-			model.addAttribute("patientObj", list1);
-			 return "admin/patient_list";
+//			List<Patient> list1 = this.patientService.getAllPatient();
+//			model.addAttribute("patientObj", list1);
+//			 return "admin/patient_list";
+		    return patient_list(model, 0, session);
 		 }
+		
 	  @GetMapping("/patientlist1")
-		 public String patientlist2(Model model)
+		 public String patientlist1(Model model)
 		 {
 			List<Patient> list1 = this.patientService.getAllPatient();
 			model.addAttribute("patientObj", list1);
 			 return "doctor/patientlist1";
 		 }
-		
-//		 @RequestMapping("/addpatient")
-//			public String addpatient(Model model) 
-//			{
-//				model.addAttribute("title", "Hospital Management System");
-//				return "addpatient";
-//			}
+	  
+	  @GetMapping("/patientlist")
+		 public String patientlist2(Model model)
+		 {
+			List<Patient> list1 = this.patientService.getAllPatient();
+			model.addAttribute("patientObj", list1);
+			 return "patient/patientlist";
+		 }
+		 @RequestMapping("/addpatient")
+			public String addpatient(Model model) 
+			{
+				model.addAttribute("title", "Hospital Management System");
+				return "addpatient";
+			}
 
 			@GetMapping("/addpatient")
 		    public String add1(Model model) {
 		        model.addAttribute("patient", new Patient());
-		        return "patient/addpatient";    
+		        return "admin/addpatient";    
 		    }
 		
-		    @PostMapping("/save")
+		@RequestMapping(value = "/save", method = RequestMethod.POST)
 			public String savePatient(@ModelAttribute("patient") Patient patient) {
 				patientService.savePatient(patient);
-				return "redirect:/patientlist";
+				//return "redirect:/patient_list";
+				  return "redirect:/patient_list";  
 			}
 			
 		@GetMapping("/updatePatient{patientId}")
@@ -134,7 +162,7 @@ public class PatientController
 				
 				System.out.println("update--------------------"+patientId);
 				model.addAttribute("patient", patientService.getPatientBypatientId(patientId));
-				return "patient/updatepatient";
+				return "admin/updatepatient";
 			}
 		
 		@PostMapping("/saveUpdatePatient{patientId}")
@@ -156,48 +184,34 @@ public class PatientController
 		 }
 			    
 				 this.patientService.updatePatient(patient, patientId);
-				  return "redirect:/doctor/patientlist1";
+				 return "redirect:/patient_list";
 					
 			}
 		
 		@GetMapping("/patientlist/{patientId}")
-		public String deletePatient(@PathVariable Long patientId) {
-		System.out.println(patientId);
+		public String deletePatient(@PathVariable("patientId") Long patientId) 
+		{
+		    System.out.println(patientId);
 			patientService.deletePatientBypatientId(patientId);
-			return "redirect:patient/patientlist";
+			return "redirect:/patient_list";
 		}
 		
 		
->>>>>>> 8e53fd8 (Project Commit)
 	 
 	 @GetMapping("/patient_signup")
 	 public String patientsignup(Model model)
 	 {
 		 model.addAttribute("patient", new Patient());
-<<<<<<< HEAD
-		 return "patient_signup";
-	 }
-	
-	  @PostMapping("/checkLogin1")
-	 public String checkLogin(@ModelAttribute Patient patient)
-=======
 		 return "patient/patient_signup";
 	 }
 	
 	  @PostMapping("/checkLogin1")
 	 public String checkLogin(@ModelAttribute Patient patient, HttpSession session)
->>>>>>> 8e53fd8 (Project Commit)
 	 {
 		 Patient patient1= patientService.checkLogin1(patient.getPatientEmail(),patient.getPatientContact());
 		 if(patient1!=null)
 		 {
-<<<<<<< HEAD
-			 return "patient_dashboard";
-		 }
-		 else
-		 {
-		 return "patient_login";
-=======
+			 session.setAttribute("patient", patient1);
 			 session.setAttribute("patientId", patient1.getPatientId());
 			 session.setAttribute("patientName", patient1.getPatientName());
 			 return "patient/patientbase";
@@ -205,40 +219,27 @@ public class PatientController
 		 else
 		 {
 		 return "patient/patient_login";
->>>>>>> 8e53fd8 (Project Commit)
 		 }
 	 }
 	 
 	 @GetMapping("/patient_login")
 	 public String login()
 	 {
-<<<<<<< HEAD
-		 return "patient_login";
-=======
 		 return "patient/patient_login";
->>>>>>> 8e53fd8 (Project Commit)
 	 }
 	
 	
 	@PostMapping("/registerPatient")
-<<<<<<< HEAD
-	 public String register(@Valid @ModelAttribute Patient patient, BindingResult result, @RequestParam(value="agreement",defaultValue ="false")boolean agreement,Model model,  HttpSession session, @RequestParam("userProfilePhoto") MultipartFile file)throws IOException
-=======
 	 public String register(@Valid @ModelAttribute Patient patient, BindingResult result,
 			 @RequestParam(value="agreement",defaultValue ="false")boolean agreement,Model model,  HttpSession session, 
 			 @RequestParam("patientProfilePhoto") MultipartFile file)throws IOException
->>>>>>> 8e53fd8 (Project Commit)
 	 {
 		try 
 		{
 			if(result.hasErrors())
 			{
 				model.addAttribute("patient",patient);
-<<<<<<< HEAD
-				return "patient_signup";
-=======
 				return "patient/patient_signup";
->>>>>>> 8e53fd8 (Project Commit)
 			}
 		    if(agreement)
 			 {
@@ -257,11 +258,7 @@ public class PatientController
 		    	}
 				session.setAttribute("message1", new Message("Registration Successfull !" , "alert-success"));
 				this.patientService.addPatient(patient);
-<<<<<<< HEAD
-				return "patient_login";
-=======
 				return "patient/patient_login";
->>>>>>> 8e53fd8 (Project Commit)
 				
 			 }
 			 else
@@ -276,18 +273,83 @@ public class PatientController
 		}
 		
 		
-<<<<<<< HEAD
-		 return "patient_signup";
-		 
-	 }
-}
-=======
 		 return "patient/patient_signup";
 		 
 	 }
+	@GetMapping("/pass")
+	public String forgotPass()
+	{
+		return "forgotpass";
+	}
+	
+	
+	@PostMapping("/send_otp")
+	public String forgot_pass(@RequestParam("patientEmail") String patientEmail,HttpSession session)
+	{
+		int otp=random.nextInt(9999);
+		System.out.println("Email++++++++++++++++++++++++++++++++++++++++++++++++"+patientEmail);
+		System.out.println("OTP++++++++++++++++++++++++++++++++++++++++++++++++++"+otp);
+		
+		String subject="OTP from HMS";
+		String message="<h1> OTP="+otp+"</h1>";
+		String to=patientEmail;
+		String from="pratikshashelke2911@gmail.com";
+		
+		boolean flag=this.emailService.sendEmail(subject,message,to, from);
+		if(flag)
+		{
+			session.setAttribute("newotp", otp);
+			session.setAttribute("patientemail", patientEmail);
+			return "verify_otp";
+		}
+		else 
+		{
+			return "forgotpass";
+		}
+		
+	}
+	@PostMapping("/verify-otp")
+	public String verifyotp(@RequestParam("otp")int otp,HttpSession session)
+	{
+		int newOtp = (int) session.getAttribute("newotp");
+		String patientEmail = (String) session.getAttribute("patientemail");
+		if(newOtp==otp)
+		{
+			Patient patient22=this.patientService.checkEmail(patientEmail);
+			if(patient22==null)
+			{
+				session.setAttribute("message5",new Message("Patient does not exist for this email id","alert-success"));
+				return "forgotpass";
+				
+			}
+			else 
+			{
+				return "change_password";
+				
+			}
+		}
+		else 
+		{
+			session.setAttribute("message6", new Message("you entered wrong otp", "alert-primary"));
+			return "verify_otp";
+		}
+	}
+	@PostMapping("/change_pass")
+	public String changepass(@RequestParam("patientContact")String password,@ModelAttribute Patient patient, HttpSession session)
+	{
+		String email = (String) session.getAttribute("patientemail");
+		System.out.println("++++++++++++++++++++++++++++++++++++++"+email);
+		Patient patient1 = this.patientService.checkEmail(email);
+		System.out.println("+++++++++++++++++++++++++++++++++++++++"+patient1);
+		patient1.setPatientContact(patient.getPatientContact());
+		
+		this.patientRepo.save(patient1);
+		session.setAttribute("message7",new Message("Password Updated Successfully", "alert-success"));
+		return "patient/patient_login";
+		
+	}
 }
 
 
 
 
->>>>>>> 8e53fd8 (Project Commit)

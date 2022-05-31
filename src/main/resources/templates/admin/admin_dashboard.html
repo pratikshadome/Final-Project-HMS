@@ -20,10 +20,14 @@
   
   <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
 
-  <a class="navbar-brand" href="#">Welcome in KEM Hospital</a>
+  <a class="navbar-brand" href="#">Welcome in Hospital</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  
+  <section class="banner">
+  <marquee style="font-family:fantasy; font-size:45px"> Welcome to Admin Dashboard...</marquee>
+  </section>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav ml-auto text-uppercase">
@@ -51,10 +55,10 @@
   <a href="#" class="item"><b><h4> Admin Dashboard</h4></b></a>
   <a th:href="@{/patient_list}" class="item"><i class="fa-regular fa-rectangle-list"></i>	Patient List</a>
   <a href="doctorlist" class="item"><i class="fa-regular fa-rectangle-list"></i>  Doctor List</a>
-  <a href="#" class="item"><i class="fa-regular fa-rectangle-list"></i>  Appointment List</a>
+  <a href="appointmentlist" class="item"><i class="fa-regular fa-rectangle-list"></i>  Appointment List</a>
   <a th:href = "@{'/addpatient'}" ><i class="fa-solid fa-user-plus"></i> Add Patient</a>
-  <a th:href = "@{/add_doctor}" ><i class="fa-solid fa-user-plus"></i> Add Doctor</a>
-  <a href="#" class="item"><i class="fa-solid fa-table-list"></i>  Patient Summary List</a>
+  <a th:href = "@{/adddoctor}" ><i class="fa-solid fa-user-plus"></i> Add Doctor</a>
+  <a href="summary_list" class="item"><i class="fa-solid fa-table-list"></i>  Patient Summary List</a>
   <div class="divider"></div>
 </div>
 

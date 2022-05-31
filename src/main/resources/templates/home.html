@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})" >
 
   <head>
@@ -10,155 +10,22 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
     <title></title>
-     
-  </head>
-  <body>
-<<<<<<< HEAD
-  <section>
-               
- <div class="container">
- 
- <div class="card-group">
-  <div class="card mt-5">
-    <img src="../images/homepage/Patient1.jpg" class="card-img-top" alt="...">
-    <div class="card-body">
-      <h5 class="card-title">Patient</h5>
-      <p class="card-text">Patients can login here..</p>
-      <a href="patient_login" class="btn btn-primary">click here</a>
-       </div>
-  </div>
-  
-  
-  <div class="card mt-5"style="width:40%">
-    <img src="../images/homepage/Doctor.jpg" class="card-img-top" alt="..."style="height:52%">
-    <div class="card-body">
-      <h5 class="card-title">Doctor</h5>
-      <p class="card-text">Doctor can login here.</p>
-      <a href="doctor_login" class="btn btn-primary">click here</a>
-      </div>
-  </div>
-  
-  <div class="card mt-5">
-    <img src="../images/homepage/Admin1.jpg" class="card-img-top" alt="..."style="height:52%">
-    <div class="card-body">
-      <h5 class="card-title">Admin</h5>
-      <p class="card-text">Admin can login here.</p>
-      <a href="login" class="btn btn-primary">click here</a>
-    </div>  
-    </div>
- </div>
 
- 
-<!--  <div class="row"> -->
-<!--   <div class="col-sm-6"> -->
-<!--    <div class="card mt-5"style="width:300px"> -->
-<!--    <img src="../images/patient.png" alt="Card image" style="width:100%"> -->
-<!--    <div class="card-body"> -->
-<!--         <h5 class="card-title">Patient</h5> -->
-<!--         <p class="card-text">Patients can login here for taking appointment with any doctor available in our hospital</p> -->
-<!--         <a href="login" class="btn btn-primary">click here</a> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-  
-<!--   <div class="col-sm-6"> -->
-<!--   <div class="card1 mt-5" style="width:300px"> -->
-<!--   <img class="card-img-center" src="../images/doctor.png" alt="Card image" style="width:90%"> -->
-<!--     <div class="card-body"> -->
-<!--         <h5 class="card-title">Doctor</h5> -->
-<!--         <p class="card-text">Doctors can login here for checking appointment list of patients and schedule</p> -->
-<!--         <a href="login" class="btn btn-primary">Click Here</a> -->
-<!--       </div> -->
-<!--     </div> -->
-<!--   </div> -->
-<!-- </div> -->
- 
- 
-<!--   <div class="card mt-3"style="width:300px"> -->
-<!--     <img src="../images/patient.png" alt="Card image" style="width:100%"> -->
-<!--     <div class="card-body"> -->
-<!--       <h4 class="card-title">Patient</h4> -->
-<!--       <p class="card-text">Patients can login here for taking appointment with any doctor available in our hospital</p> -->
-<!--       <a href="login" class="btn btn-primary">Click here</a> -->
-<!--     </div> -->
-<!--   </div> -->
-<!--   <br> -->
-
-
-<!--   <div class="card1 mt-5"style="width:300px"> -->
-<!--     <img class="card-img-center" src="../images/doctor.png" alt="Card image" style="width:100%"> -->
-<!--     <div class="card-body"> -->
-<!--       <h4 class="card-title">Doctor</h4> -->
-<!--       <p class="card-text">Doctors can login here for checking appointment list of patients and schedule</p> -->
-<!--       <a href="login" class="btn btn-primary">Click here</a> -->
-<!--     </div> -->
-<!--   </div> -->
-<!--   <br> -->
-<!--  </div> -->
- 
-  
-=======
+</head>
+<body class="hospital d-flex justify-content-center  align-items-center" style="margin-top: 15%;">
+<section >
+<div id="hospital">
 
 <section class="banner">
- <div id="para1">
-  <marquee style="font-family:fantasy; font-size:55px"> Hospital Management System</marquee>
+  <marquee style="font-family:fantasy; font-size:55px" > Hospital Management System</marquee>
 
- <div class="container">
-     <div class="row">
-         <div class="card-group">
-            <div class="card mt-4 mb-4"style="width:18rem;">
-                 <img src="/images/homepage/patient1.jpg"  class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <h4 class="card-title">Patient</h4>
-                         <p class="card-text">Patient can login here for taking appointment</p>
-                         <a href="patient_login" class="byn btn-primary">Click Here</a>
-                     </div>   
-            </div>
-        </div>       
-                     
-                     
-                     
-         <div class="col-md-4">
-             <div class="card mt-4 mb-4"style="width:18rem;">
-                 <img src="/images/homepage/doctor.jpg"  class="card-img-top" alt="...">
-                     <div class="card-body">
-                         <h4 class="card-title">Doctor</h4>
-                         <p class="card-text">Doctors can login here for viewing patient list </p>
-                         <a href="doctor_login" class="byn btn-primary">Click Here</a>
-                     </div>   
-            </div>
-        </div>                    
-                     
-        
-        <div class="col-md-4">
-             <div class="card mt-4 mb-4"style="width:18rem;">
-                 <img src="/images/homepage/admin1.jpg"  class="card-img-top" alt="..">
-                     <div class="card-body">
-                         <h4 class="card-title">Admin</h4>
-                         <p class="card-text">Admin can login here for controlling all activities</p>
-                         <a href="admin_login" class="byn btn-primary">Click Here</a>
-                     </div>   
-            </div>
-       </div>         
+<div>
+<!-- <h1 class="font-weight-bold d-flex justify-content-center align-items-center" style="margin-top: 0%;"  ><i>Hospital Management System</i></h1> -->
+<h1 class="text-center"style="margin-top: 5%; font-size: large;"><a th:href="@{/dashboard}" > <button type="submit" class="btn btn-primary"style="color: golden;">Get Started</button></a></h1>
 </div>
 </div>
-</div>
-               
-  </section>
->>>>>>> 8e53fd8 (Project Commit)
+</section>
 
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
-    -->
-     </section>
-  </body>
+</body>
 </html>
+

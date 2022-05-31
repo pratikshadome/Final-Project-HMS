@@ -1,5 +1,9 @@
 package com.HMS.repository;
 
+import java.awt.print.Pageable;
+import java.util.List;
+
+import org.springframework.data.domain.Page;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 
@@ -9,22 +13,21 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.HMS.entity.Patient;
 
 
-<<<<<<< HEAD
-public interface PatientRepo extends JpaRepository<Patient, Integer> 
-=======
 public interface PatientRepo extends JpaRepository<Patient, Long> 
->>>>>>> 8e53fd8 (Project Commit)
 {
 	
 
 	public Patient findByPatientEmailAndPatientContact(String email, String contact);
 
-<<<<<<< HEAD
-=======
 	public Patient findBypatientId(Long patientId);
+	
+	public Patient findByPatientEmail(String patientEmail);
+
+	
+
+	
 
 	//public void deleteBypatientId(Long patientId);
 
->>>>>>> 8e53fd8 (Project Commit)
 	
 }

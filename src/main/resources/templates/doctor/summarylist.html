@@ -1,0 +1,73 @@
+<!-- <html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::Layout(~{::section})" >
+ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="doctor/doctor_dashboard::Layout(~{::section})" >
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient Summary List</title>
+</head>
+<body>
+<section>
+	<h1 align="center">Patient Summary List</h1>
+		<div class="container">
+		
+		
+			<table class="table" style = "margin-left: 15%;"> 
+				<thead class="thead-dark" >
+					<tr>
+						<th scope="col"></th>
+						<th scope="col">Patient Name</th>
+						<th scope="col">Doctor Name</th>
+						<th scope="col">Disease Detected</th>
+						<th scope="col">Description</th>
+						<th scope="col">Visit Again On Date</th>
+						
+						<!-- <th scope="col">Action</th> -->
+					</tr>
+				</thead>		
+			<tbody>
+				<tr th:each="patientsummary:${patientsummaryObj}">
+					<td th:text="${patientsummary.summary_id}"></td>
+						<td th:text="${patientsummary.patient_Name}"></td>
+							<td th:text="${patientsummary.doctor_Name}"></td>
+								<td th:text="${patientsummary.disease_detected}"></td>
+									<td th:text="${patientsummary.description}"></td>
+										<td th:text="${patientsummary.visit_again_on}"></td>	
+
+									
+				
+			        
+
+			    
+<!-- <td><button class = "btn btn-primary"><a th:href = "@{/updatePatient{patientId}(patientId=${patient.patientId})}">Update</a></button>
+
+<button class = "btn btn-danger"><a th:href = "@{/patientlist/{patientId}(patientId=${patient.patientId})}">Delete</a></button> -->
+
+			    
+			    
+			    
+			    
+			        
+			       
+			   </tr>  
+	      </tbody>
+	</table>
+	
+	
+	<nav aria-label="Page navigation example">
+		<ul class="pagination" style="margin-left: 40%">
+			<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+			<li class="page-item"><a class="page-link" href="#">1</a></li>
+			<li class="page-item"><a class="page-link" href="#">2</a></li>
+			<li class="page-item"><a class="page-link" href="#">3</a></li>
+			<li class="page-item"><a class="page-link" href="#">4</a></li>
+			<li class="page-item"><a class="page-link" href="#">5</a></li>
+			
+	   </ul>
+	
+</nav>
+		
+		
+		</div>
+</section>
+</body>
+</html>

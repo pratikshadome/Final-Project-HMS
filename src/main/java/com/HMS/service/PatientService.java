@@ -1,23 +1,17 @@
 package com.HMS.service;
 
-<<<<<<< HEAD
-=======
+
 import java.util.List;
 
->>>>>>> 8e53fd8 (Project Commit)
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import com.HMS.entity.Patient;
 
 
 
 public interface PatientService 
 {
-<<<<<<< HEAD
-      public void addPatient(Patient patient);
-      
-  	
-	public Patient checkLogin1(String Email, String Contact);
-}
-=======
     public void addPatient(Patient patient);
     public Patient checkLogin1(String Email, String Contact);
     
@@ -31,7 +25,10 @@ public interface PatientService
 	
 	public void updatePatient(Patient patient,long patientId);
 	
+	public Patient checkEmail(String patientEmail);
 	
+	public void updatePassword(Patient patient, int patientId);
+	public  Page <Patient> getAllPatient(Pageable pageable); 
 	
 	
 }
@@ -46,4 +43,3 @@ public interface PatientService
 	
 	
 
->>>>>>> 8e53fd8 (Project Commit)
